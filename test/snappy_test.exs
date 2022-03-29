@@ -1,5 +1,5 @@
 defmodule SnappyTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest Snappy
 
   test "compress" do
@@ -23,7 +23,10 @@ defmodule SnappyTest do
 
   test "valid_compressed_buffer?" do
     {:ok, compressed} = Snappy.compress("aaaaaaaaaaaaaaaaaaaa")
-    assert {:ok, true} = Snappy.valid_compressed_buffer?(compressed)
-    assert {:ok, false} = Snappy.valid_compressed_buffer?(<<>>)
+    assert true == Snappy.valid_compressed_buffer?(compressed)
+    assert false == Snappy.valid_compressed_buffer?(<<>>)
+
+    assert false == Snappy.valid_compressed_buffer?(compressed, 1)
+    assert false == Snappy.valid_compressed_buffer?(<<>>, 1)
   end
 end

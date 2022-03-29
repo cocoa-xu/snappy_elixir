@@ -76,8 +76,7 @@ defmodule Snappy do
 
       iex> {:ok, compressed} = Snappy.compress("aaaaaaaaaaaaaaaaaaaa")
       {:ok, <<20, 0, 97, 74, 1, 0>>}
-      iex> {:ok, _valid} = Snappy.valid_compressed_buffer?(compressed)
-      {:ok, true}
+      iex> true = Snappy.valid_compressed_buffer?(compressed)
 
   """
   @spec valid_compressed_buffer?(binary()) :: true | false

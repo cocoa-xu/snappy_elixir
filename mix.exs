@@ -47,6 +47,7 @@ defmodule SnappyElixir.MixProject do
       version: @version,
       deps: deps(),
       docs: docs(),
+      test_coverage: [ignore_modules: [Snappy.Nif]],
       compilers: [:elixir_make] ++ Mix.compilers(),
       elixirc_paths: elixirc_paths(Mix.env()),
       source_url: "https://github.com/cocox-xu/snappy_elixir",

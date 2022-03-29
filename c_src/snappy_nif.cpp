@@ -126,12 +126,12 @@ static ERL_NIF_TERM is_valid_compressed_buffer_nif(ErlNifEnv *env, int argc, con
     size_t size;
     if (enif_inspect_binary(env, argv[0], &data) && enif_get_uint64(env, argv[1], &size)) {
         if (size <= data.size && snappy::IsValidCompressedBuffer((const char *)data.data, size)) {
-            return erlang::nif::ok(env, enif_make_atom(env, "true"));
+            return enif_make_atom(env, "true");
         } else {
-            return erlang::nif::ok(env, enif_make_atom(env, "false"));
+            return enif_make_atom(env, "false");
         }
     } else {
-        return erlang::nif::ok(env, enif_make_atom(env, "false"));
+        return enif_make_atom(env, "false");
     }
 }
 
