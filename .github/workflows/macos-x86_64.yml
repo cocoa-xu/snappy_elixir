@@ -1,0 +1,55 @@
+name: macos-x86_64
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**/README.md'
+      - 'LICENSE*'
+      - 'examples/**'
+      - 'Makefile.win'
+      - 'cc_toolchain/**'
+      - '.github/FUNDING.yml'
+      - '.github/workflows/linux-*.yml'
+      - '.github/workflows/windows-*.yml'
+      - '.github/workflows/test-*.yml'
+      - '.github/workflows/macos-precompile.yml'
+  push:
+    branches:
+      - main
+      - test-*
+    paths-ignore:
+      - '**/README.md'
+      - 'LICENSE*'
+      - 'examples/**'
+      - 'Makefile.win'
+      - 'cc_toolchain/**'
+      - '.github/FUNDING.yml'
+      - '.github/workflows/linux-*.yml'
+      - '.github/workflows/windows-*.yml'
+      - '.github/workflows/test-*.yml'
+      - '.github/workflows/macos-precompile.yml'
+  workflow_dispatch:
+
+jobs:
+  mix_test:
+    runs-on: macos-11
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Erlang and Elixir
+        run: |
+          brew install erlang
+          brew install elixir
+          mix local.hex --force
+          mix local.rebar --force
+
+      - name: Mix Compile
+        run: |
+          export MIX_ENV=test
+          mix deps.get
+          mix compile
+
+      - name: Mix Test
+        run: |
+          mix test --include require_downloading --include require_ffmpeg
