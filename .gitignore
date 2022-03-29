@@ -28,3 +28,4 @@ snappy_elixir-*.tar
 .idea/
 .vscode/
 3rd_party/
+.cache/
