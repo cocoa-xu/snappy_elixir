@@ -4,7 +4,7 @@ defmodule SnappyElixir.MixProject do
   @app :snappy
   @version "0.1.0-dev"
   @default_package_version "1.1.9"
-  @source_url "https://github.com/cocoa-xu/snappy_elixir/tree/#{@version}"
+  @source_url "https://github.com/cocoa-xu/snappy_elixir/tree/main"
 
   defp download_if_needed(package_ver, prefer_precompiled) do
     if prefer_precompiled == "false" and System.get_env("SNAPPY_USE_GIT_HEAD", "false") == "false" do
@@ -46,6 +46,7 @@ defmodule SnappyElixir.MixProject do
       name: "Snappy",
       version: @version,
       deps: deps(),
+      docs: docs(),
       compilers: [:elixir_make] ++ Mix.compilers(),
       elixirc_paths: elixirc_paths(Mix.env()),
       source_url: "https://github.com/cocox-xu/snappy_elixir",
@@ -100,6 +101,14 @@ defmodule SnappyElixir.MixProject do
         ~w(lib c_src py_src 3rd_party priv .formatter.exs mix.exs README* LICENSE*),
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => "https://github.com/cocoa-xu/snappy_elixir"}
+    ]
+  end
+
+  defp docs do
+    [
+      main: "Snappy",
+      source_ref: "v#{@version}",
+      source_url: @source_url,
     ]
   end
 
