@@ -40,9 +40,6 @@ jobs:
           }
           New-Item -Path . -Force -Name "$Env:PKG_NAME" -ItemType "directory"
           $Env:PRIV_DIR = "_build/${Env:MIX_ENV}/lib/snappy/priv"
-          if (Test-Path $Env:PRIV_DIR) {
-              Remove-Item "$Env:PRIV_DIR/x64" -Recurse -Force
-          }
           Copy-Item -Path "$Env:PRIV_DIR" -Destination "$Env:PKG_NAME" -Recurse
 
           tar -czf "${Env:PKG_NAME}.tar.gz" "${Env:PKG_NAME}"
