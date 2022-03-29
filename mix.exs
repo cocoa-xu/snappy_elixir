@@ -115,8 +115,7 @@ defmodule SnappyElixir.MixProject do
 
   defp deps do
     [
-      {:elixir_make, "~> 0.6"},
-      {:dll_loader_helper, "~> 0.1.0"},
+      {:elixir_make, "~> 0.6", runtime: false},
       {:ex_doc, "~> 0.28", only: :dev, runtime: false},
     ]
   end

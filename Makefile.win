@@ -56,6 +56,7 @@ $(NIF_SO):
 	@ cd "$(CMAKE_SNAPPY_BUILD_DIR)" && \
 		cmake -G $(CMAKE_GENERATE_TYPE) \
 		  -D CMAKE_BUILD_TYPE=Release \
+		  -D SNAPPY_DIR="$(SNAPPY_DIR)" \
 		  -D C_SRC="$(C_SRC)" \
 		  -D PRIV_DIR="$(PRIV_DIR)" \
 		  -D ERTS_INCLUDE_DIR="$(ERTS_INCLUDE_DIR)" \
