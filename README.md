@@ -2,6 +2,20 @@
 
 A simple snappy-elixir binding.
 
+## Usage
+```elixir
+iex> data = "aaaaaaaaaaaaaaaaaaaa"
+iex> {:ok, compressed} = Snappy.compress(data)
+{:ok, <<20, 0, 97, 74, 1, 0>>}
+iex> true = Snappy.valid_compressed_buffer?(compressed)
+iex> {:ok, uncompressed_length} = Snappy.uncompressed_length(compressed)
+{:ok, 20}
+iex> {:ok, uncompressed} = Snappy.uncompress(compressed)
+{:ok, "aaaaaaaaaaaaaaaaaaaa"}
+iex> {:ok, max_size} = Snappy.max_compressed_length(data)
+{:ok, 55}
+```
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
