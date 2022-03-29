@@ -13,6 +13,7 @@ jobs:
     env:
       MIX_ENV: dev
       NIF_VERSION: 0.1.0
+      SNAPPY_PREFER_PRECOMPILED: false
     strategy:
       fail-fast: false
       matrix:

@@ -36,6 +36,7 @@ jobs:
     env:
       MIX_ENV: test
       MAKE: nmake
+      SNAPPY_PREFER_PRECOMPILED: false
 
     steps:
       - uses: actions/checkout@v2

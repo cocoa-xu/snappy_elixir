@@ -8,6 +8,7 @@ build linux x86_64:
     arch_name: x86_64
     nif_version: 0.1.0-dev
     elixir_version: "1.13.3"
+    SNAPPY_PREFER_PRECOMPILED: false
   script:
     - |
       apt-get update
@@ -48,6 +49,7 @@ build linux arm64:
     arch_name: arm64
     snappy_version: 0.1.0-dev
     elixir_version: "1.13.3"
+    SNAPPY_PREFER_PRECOMPILED: false
   script:
     - |
       apt-get update
@@ -86,6 +88,7 @@ build linux armv7:
     arch_name: armhf
     snappy_version: 0.1.0-dev
     elixir_version: "1.13.3"
+    SNAPPY_PREFER_PRECOMPILED: false
   script:
     - |
       apt-get update

@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       NIF_VERSION: 0.1.0
+      SNAPPY_PREFER_PRECOMPILED: false
     strategy:
       fail-fast: false
       matrix:

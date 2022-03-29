@@ -35,6 +35,7 @@ jobs:
     runs-on: macos-11
     env:
       MIX_ENV: test
+      SNAPPY_PREFER_PRECOMPILED: false
 
     steps:
       - uses: actions/checkout@v2
