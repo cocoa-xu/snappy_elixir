@@ -1,4 +1,5 @@
 #include <erl_nif.h>
+#include <cstring>
 #include <string>
 #include "nif_utils.hpp"
 #include "snappy.h"

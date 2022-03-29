@@ -1,6 +1,7 @@
 #pragma once
 
 #include "erl_nif.h"
+#include <cstring>
 #include <stdarg.h>
 #include <map>
 #include <string>
