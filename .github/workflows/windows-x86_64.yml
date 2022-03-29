@@ -35,6 +35,7 @@ jobs:
     runs-on: windows-latest
     env:
       MIX_ENV: test
+      MAKE: nmake
 
     steps:
       - uses: actions/checkout@v2
@@ -50,12 +51,10 @@ jobs:
 
       - name: Mix Compile
         run: |
-          $Env:MAKE = "nmake"
           mix deps.get
           Remove-Item Makefile
           mix compile
 
       - name: Mix Test
         run: |
-          $Env:MAKE = "nmake"
           mix test --cover
