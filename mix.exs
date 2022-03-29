@@ -38,7 +38,7 @@ defmodule SnappyElixir.MixProject do
 
   def project do
     package_ver = System.get_env("SNAPPY_VER", @default_package_version)
-    download_if_needed(package_ver, System.get_env("SNAPPY_PREFER_PRECOMPILED", "false"))
+    download_if_needed(package_ver, System.get_env("SNAPPY_PREFER_PRECOMPILED", "true"))
     ninja = System.find_executable("ninja")
 
     [
@@ -63,7 +63,7 @@ defmodule SnappyElixir.MixProject do
         "SNAPPY_VER" => package_ver,
         "MAKE_BUILD_FLAGS" =>
           System.get_env("MAKE_BUILD_FLAGS", "-j#{System.schedulers_online()}"),
-        "SNAPPY_PREFER_PRECOMPILED" => System.get_env("SNAPPY_PREFER_PRECOMPILED", "false"),
+        "SNAPPY_PREFER_PRECOMPILED" => System.get_env("SNAPPY_PREFER_PRECOMPILED", "true"),
         "SNAPPY_PRECOMPILED_VERSION" => System.get_env("SNAPPY_PRECOMPILED_VERSION", @version)
       }
     ]
