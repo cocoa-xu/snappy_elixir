@@ -7,7 +7,7 @@ defmodule SnappyElixir.MixProject do
   @source_url "https://github.com/cocoa-xu/snappy_elixir/tree/main"
 
   defp download_if_needed(package_ver, prefer_precompiled) do
-    if prefer_precompiled == "false" and System.get_env("SNAPPY_USE_GIT_HEAD", "false") == "false" do
+    if prefer_precompiled != "true" and System.get_env("SNAPPY_USE_GIT_HEAD", "false") == "false" do
       #  in simple words
       #  1. download "https://github.com/google/snappy/archive/$(SNAPPY_VER).zip" to "3rd_party/cache/snappy-$(SNAPPY_VER).zip"
       #  2. unzip -o "3rd_party/cache/snappy-$(SNAPPY_VER).zip" -d "SNAPPY_ROOT_DIR"
