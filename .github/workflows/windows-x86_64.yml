@@ -58,4 +58,4 @@ jobs:
       - name: Mix Test
         run: |
           $Env:MAKE = "nmake"
-          mix test
+          mix test --cover

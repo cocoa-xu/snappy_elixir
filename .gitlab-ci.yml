@@ -25,6 +25,7 @@ build linux x86_64:
       mix local.rebar --force
       mix deps.get
       mix compile
+      mix test --cover
       export PKG_NAME=snappy-${os}-${arch_name}-${nif_version}
       mkdir -p "${PKG_NAME}"
       cp -a _build/dev/lib/snappy/priv "${PKG_NAME}"

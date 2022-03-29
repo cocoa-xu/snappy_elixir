@@ -60,4 +60,4 @@ jobs:
 
       - name: Mix Test
         run: |
-          mix test
+          mix test --cover
