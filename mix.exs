@@ -2,7 +2,7 @@ defmodule SnappyElixir.MixProject do
   use Mix.Project
 
   @app :snappy
-  @version "0.1.0-dev"
+  @version "0.1.0"
   @default_package_version "1.1.9"
   @source_url "https://github.com/cocoa-xu/snappy_elixir/tree/main"
 
@@ -52,7 +52,7 @@ defmodule SnappyElixir.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       source_url: "https://github.com/cocox-xu/snappy_elixir",
       description: description(),
-      elixir: "~> 1.11-dev",
+      elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: package(),

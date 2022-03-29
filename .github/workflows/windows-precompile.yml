@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-latest
     env:
       MIX_ENV: dev
-      NIF_VERSION: 0.1.0-dev
+      NIF_VERSION: 0.1.0
 
     steps:
       - uses: actions/checkout@v2
@@ -53,5 +53,5 @@ jobs:
 
       - uses: softprops/action-gh-release@v1
         with:
-          tag_name: 0.1.0-dev
+          tag_name: 0.1.0
           files: artifacts/*.tar.gz

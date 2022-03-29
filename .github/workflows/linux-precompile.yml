@@ -10,6 +10,8 @@ on:
 jobs:
   mix_test:
     runs-on: ubuntu-20.04
+    env:
+      NIF_VERSION: 0.1.0
     strategy:
       fail-fast: false
       matrix:
@@ -46,7 +48,7 @@ jobs:
       - name: Install system dependecies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential automake autoconf pkg-config bc m4 unzip zip curl git libssl-dev gzip libncurses5-dev python3 ca-certificates
+          sudo apt-get install -y build-essential automake autoconf pkg-config bc m4 unzip zip curl git libssl-dev gzip libncurses5-dev ca-certificates
 
       - name: Install system dependecies (aarch64)
         if: ${{ matrix.pair.arch_name == 'aarch64' }}
@@ -80,7 +82,7 @@ jobs:
           echo "CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}"
           mix deps.get
           mix compile
-          export PKG_NAME=snappy-linux-${{ matrix.pair.arch_name }}-0.1.0-dev
+          export PKG_NAME=snappy-linux-${{ matrix.pair.arch_name }}-${NIF_VERSION}
           mkdir -p "${PKG_NAME}"
           cp -a _build/dev/lib/snappy/priv "${PKG_NAME}"
           tar -czf "${PKG_NAME}.tar.gz" "${PKG_NAME}"
@@ -91,5 +93,5 @@ jobs:
 
       - uses: softprops/action-gh-release@v1
         with:
-          tag_name: 0.1.0-dev
+          tag_name: 0.1.0
           files: artifacts/*.tar.gz
