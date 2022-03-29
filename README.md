@@ -1,6 +1,6 @@
 # SnappyElixir
 
-**TODO: Add description**
+A simple snappy-elixir binding.
 
 ## Installation
 
