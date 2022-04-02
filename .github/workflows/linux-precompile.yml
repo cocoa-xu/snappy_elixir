@@ -37,6 +37,10 @@ jobs:
               arch_name: s390x
               deb_arch: s390x
               cmake_toolchain_file: cc_toolchain/linux-s390x.cmake
+          - pair:
+              arch_name: riscv64
+              deb_arch: riscv64
+              cmake_toolchain_file: cc_toolchain/linux-riscv64.cmake
 
     steps:
       - uses: actions/checkout@v2
