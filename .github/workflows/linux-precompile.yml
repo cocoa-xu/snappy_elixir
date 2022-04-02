@@ -75,6 +75,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gcc-s390x-linux-gnu g++-s390x-linux-gnu
 
+      - name: Install system dependecies (riscv64)
+        if: ${{ matrix.pair.arch_name == 'riscv64' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-riscv64-linux-gnu g++-riscv64-linux-gnu
+
       - name: Create precompiled library
         run: |
           if [ "${{ matrix.pair.cmake_toolchain_file }}" != "" ]; then
